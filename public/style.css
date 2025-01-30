@@ -1,0 +1,148 @@
+.chat-container {
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    position: relative;
+    background: #c4c4c4;
+}
+
+.header {
+    position: relative; /* Allow positioning of bots within this container */
+    background: linear-gradient(to bottom, black, rgb(211, 211, 211));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Bot 1 - Move top to bottom in the top-right corner of the header */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 20px; /* Start near the top */
+    right: 10px; /* Start near the right */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #000; /* Black bot */
+    animation: moveTopToBottom 4s linear infinite; /* Animation for vertical movement */
+}
+
+/* Bot 2 - Move bottom to top from the bottom-left corner in the header */
+.header::after {
+    content: '';
+    position: absolute;
+    left: 10px; /* Start at the left */
+    bottom: 20px; /* Start near the bottom */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #000; /* Black bot */
+    animation: moveBottomToTop 4s linear infinite; /* Animation for vertical upward movement */
+}
+
+/* Animation for Bot 1 - Moving top to bottom within the header */
+@keyframes moveTopToBottom {
+    0% {
+        top: 20px; /* Start at the top-right corner */
+    }
+    100% {
+        top: 80%; /* Move downwards to near the bottom of the header */
+    }
+}
+
+/* Animation for Bot 2 - Moving bottom to top from the left-bottom corner */
+@keyframes moveBottomToTop {
+    0% {
+        bottom: 20px; /* Start at the bottom-left corner */
+    }
+    100% {
+        bottom: 80%; /* Move upwards to the top of the header */
+    }
+}
+
+
+.logo {
+    width: auto;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.chat-window {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: #fff;
+overflow-y: auto;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.chat-log {
+    height: 400px;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+/* Added space between user prompts */
+.chat-log p {
+    margin: 10px 0;
+}
+.input-container input[type="text"] {
+    flex: 1;
+    height: 40px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+.input-container button {
+    margin-left: 10px;
+    padding: 8px 16px;
+border: none;
+border-radius: 5px;
+background-color: #4CAF50;
+color: #fff;
+ font-size: 16px;
+ cursor: pointer;
+}
+.input-container button:hover {
+    background-color: #45a049;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
